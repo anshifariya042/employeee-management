@@ -1,6 +1,33 @@
 // import { request,response } from "express";
 import Employee from "../models/Employee.js";
 
+const handleErrors = (error, res, fallbackMessage) => {
+  console.error(error);
+  if (error.code === 11000) {
+    return res.status(400).json({
+      success: false,
+      message: "Email already exists",
+    });
+  }
+  if (error.name === "ValidationError") {
+    const messages = Object.values(error.errors).map((val) => val.message);
+    return res.status(400).json({
+      success: false,
+      message: messages.join(", "),
+    });
+  }
+  if (error.name === "CastError") {
+    return res.status(400).json({
+      success: false,
+      message: "Invalid Employee ID format",
+    });
+  }
+  return res.status(500).json({
+    success: false,
+    message: fallbackMessage,
+  });
+};
+
 
 export const createEmployee=async(req,res)=>{
  try{
