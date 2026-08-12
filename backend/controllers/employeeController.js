@@ -28,21 +28,51 @@ export const createEmployee=async(req,res)=>{
  }
 };
 
-export const getEmployees=async(req,res)=>{
-    try{
-        const employees=await Employee.find().sort({createdAt: -1});
-        res.status(200).json({
-            success:true,
-            employees,
-        });
-    }catch(error){
-        console.error("create employee error:" ,error);
+export const getEmployees = async (req, res) => {
+  try {
+    const { search, department, position } = req.query;
 
-        res.status(500).json({
-            success:false,
-            message:"Failed to fetch employees",
-        });
+    const filter = {};
+
+    if (search) {
+      filter.$or = [
+        { name: { $regex: search, $options: "i" } },
+        { email: { $regex: search, $options: "i" } },
+        { phone: { $regex: search, $options: "i" } },
+      ];
     }
+
+    if (department) {
+      filter.department = {
+        $regex: `^${department}$`,
+        $options: "i",
+      };
+    }
+
+    if (position) {
+      filter.position = {
+        $regex: `^${position}$`,
+        $options: "i",
+      };
+    }
+
+    const employees = await Employee.find(filter).sort({
+      createdAt: -1,
+    });
+
+    res.status(200).json({
+      success: true,
+      count: employees.length,
+      employees,
+    });
+  } catch (error) {
+    console.error("get employees error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch employees",
+    });
+  }
 };
 
 export const getEmployeeById = async (req, res) => {
