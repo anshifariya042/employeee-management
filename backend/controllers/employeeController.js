@@ -1,4 +1,3 @@
-// import { request,response } from "express";
 import Employee from "../models/Employee.js";
 
 const handleErrors = (error, res, fallbackMessage) => {
@@ -29,30 +28,30 @@ const handleErrors = (error, res, fallbackMessage) => {
 };
 
 
-export const createEmployee=async(req,res)=>{
- try{
-    const {name,email,phone,department,position,salary,joiningDate}=req.body;
-    const employee=await Employee.create({
-        name,
-        email,
-        phone,
-        department,
-        position,
-        salary,
-        joiningDate,
+export const createEmployee = async (req, res) => {
+  try {
+    const { name, email, phone, department, position, salary, joiningDate } = req.body;
+    const employee = await Employee.create({
+      name,
+      email,
+      phone,
+      department,
+      position,
+      salary,
+      joiningDate,
     });
     res.status(201).json({
-        success:true,
-        message:"Employee created successfully",
-        employee,
+      success: true,
+      message: "Employee created successfully",
+      employee,
     })
- }catch(error){
-    console.error("create employee error:" ,error);
+  } catch (error) {
+    console.error("create employee error:", error);
     res.status(500).json({
-        success:false,
-        message:"Failed to create employee",
+      success: false,
+      message: "Failed to create employee",
     });
- }
+  }
 };
 
 export const getEmployees = async (req, res) => {
@@ -71,14 +70,14 @@ export const getEmployees = async (req, res) => {
 
     if (department) {
       filter.department = {
-        $regex: `^${department}$`,
+        $regex: department,
         $options: "i",
       };
     }
 
     if (position) {
       filter.position = {
-        $regex: `^${position}$`,
+        $regex: position,
         $options: "i",
       };
     }
@@ -87,9 +86,14 @@ export const getEmployees = async (req, res) => {
       createdAt: -1,
     });
 
+    const uniqueDepartments = await Employee.distinct("department");
+    const uniquePositions = await Employee.distinct("position");
+
     res.status(200).json({
       success: true,
       count: employees.length,
+      departments: uniqueDepartments.filter(Boolean),
+      positions: uniquePositions.filter(Boolean),
       employees,
     });
   } catch (error) {
