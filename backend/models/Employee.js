@@ -6,7 +6,6 @@ const employeeSchema = new mongoose.Schema(
       type: String,
       required: [true, "Employee name is required"],
       trim: true,
-      minlength: [2, "Name must be at least 2 characters"],
     },
 
     email: {
