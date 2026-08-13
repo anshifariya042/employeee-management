@@ -66,8 +66,8 @@ Follow these steps to run both the frontend and backend servers on your local ma
 
 ### Step 1: Clone the Repository
 ```bash
-git clone <your-repository-url>
-cd "employee management system"
+git clone https://github.com/anshifariya042/employeee-management.git
+cd "employeee-management"
 ```
 
 ---
