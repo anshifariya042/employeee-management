@@ -6,7 +6,7 @@ export default function EmployeeTable({ employees, onDelete }) {
   if (!employees || employees.length === 0) {
     return (
       <div className="bg-white rounded-lg shadow p-8 text-center text-gray-500">
-        No employees found. Try adding a new employee or adjusting your search.
+        No employees found.
       </div>
     );
   }
@@ -53,7 +53,7 @@ export default function EmployeeTable({ employees, onDelete }) {
                   <div className="text-xs text-gray-500">{employee.phone}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className="px-2.5 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                  <span className="px-2.5 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-full bg-olive-100 text-olive-800">
                     {employee.department}
                   </span>
                 </td>
@@ -72,13 +72,13 @@ export default function EmployeeTable({ employees, onDelete }) {
                   <div className="flex justify-end gap-3">
                     <Link
                       href={`/employees/edit/${employee._id}`}
-                      className="text-indigo-600 hover:text-indigo-900 transition-colors"
+                      className="text-olive-600 hover:text-olive-800 font-semibold transition-colors"
                     >
                       Edit
                     </Link>
                     <button
                       onClick={() => onDelete(employee._id)}
-                      className="text-red-600 hover:text-red-900 transition-colors"
+                      className="text-red-600 hover:text-red-800 font-semibold transition-colors"
                     >
                       Delete
                     </button>

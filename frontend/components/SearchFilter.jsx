@@ -29,7 +29,7 @@ export default function SearchFilter({
             placeholder="Search name, email, phone..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 transition-all text-sm"
+            className="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent text-gray-700 transition-all text-sm"
           />
           <span className="absolute left-3.5 top-3.5 text-gray-400">
             <svg
@@ -54,7 +54,7 @@ export default function SearchFilter({
           <select
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 bg-white transition-all text-sm cursor-pointer appearance-none"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent text-gray-700 bg-white transition-all text-sm cursor-pointer appearance-none"
           >
             <option value="">All Departments</option>
             {departments.map((dept) => (
@@ -86,7 +86,7 @@ export default function SearchFilter({
           <select
             value={position}
             onChange={(e) => setPosition(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 bg-white transition-all text-sm cursor-pointer appearance-none"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent text-gray-700 bg-white transition-all text-sm cursor-pointer appearance-none"
           >
             <option value="">All Positions</option>
             {positions.map((pos) => (

@@ -113,7 +113,7 @@ export default function EmployeeForm({
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent transition-all text-sm text-gray-700 bg-white"
             placeholder="Enter employee name"
           />
 
@@ -134,7 +134,7 @@ export default function EmployeeForm({
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent transition-all text-sm text-gray-700 bg-white"
             placeholder="Enter email"
           />
 
@@ -154,7 +154,7 @@ export default function EmployeeForm({
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent transition-all text-sm text-gray-700 bg-white"
             placeholder="Enter phone number"
           />
 
@@ -174,7 +174,7 @@ export default function EmployeeForm({
             name="department"
             value={formData.department}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent transition-all text-sm text-gray-700 bg-white"
             placeholder="e.g. IT"
           />
 
@@ -194,7 +194,7 @@ export default function EmployeeForm({
             name="position"
             value={formData.position}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent transition-all text-sm text-gray-700 bg-white"
             placeholder="e.g. Developer"
           />
 
@@ -215,7 +215,7 @@ export default function EmployeeForm({
             name="salary"
             value={formData.salary}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent transition-all text-sm text-gray-700 bg-white"
             placeholder="Enter salary"
           />
 
@@ -236,7 +236,7 @@ export default function EmployeeForm({
             name="joiningDate"
             value={formData.joiningDate}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-olive-500 focus:border-transparent transition-all text-sm text-gray-700 bg-white"
           />
 
           {errors.joiningDate && (
@@ -251,7 +251,7 @@ export default function EmployeeForm({
       <button
         type="submit"
         disabled={loading}
-        className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50"
+        className="mt-6 w-full md:w-auto bg-olive-600 text-white px-6 py-2.5 rounded-lg hover:bg-olive-700 font-medium transition-colors shadow-sm disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-olive-500 focus:ring-offset-2 cursor-pointer"
       >
         {loading ? "Saving..." : submitText}
       </button>

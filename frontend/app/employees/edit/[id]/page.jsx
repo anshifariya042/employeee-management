@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import toast from "react-hot-toast";
 
 import api from "@/lib/api";
@@ -21,14 +22,11 @@ export default function EditEmployeePage() {
     const fetchEmployee = async () => {
       try {
         const response = await api.get(`/employees/${id}`);
-
         setEmployee(response.data.employee);
       } catch (error) {
         console.error(error);
-
         toast.error(
-          error.response?.data?.message ||
-            "Failed to fetch employee"
+          error.response?.data?.message || "Failed to fetch employee"
         );
       } finally {
         setLoading(false);
@@ -43,18 +41,13 @@ export default function EditEmployeePage() {
   const handleSubmit = async (formData) => {
     try {
       setSaving(true);
-
       await api.put(`/employees/${id}`, formData);
-
       toast.success("Employee updated successfully");
-
       router.push("/employees");
     } catch (error) {
       console.error(error);
-
       toast.error(
-        error.response?.data?.message ||
-          "Failed to update employee"
+        error.response?.data?.message || "Failed to update employee"
       );
     } finally {
       setSaving(false);
@@ -63,7 +56,7 @@ export default function EditEmployeePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-gray-50">
         <Navbar />
         <Loading />
       </div>
@@ -72,26 +65,54 @@ export default function EditEmployeePage() {
 
   if (!employee) {
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-gray-50">
         <Navbar />
 
-        <main className="max-w-4xl mx-auto px-4 py-8">
-          <p className="text-red-500">
-            Employee not found.
-          </p>
+        <main className="max-w-3xl mx-auto px-4 py-8">
+          <p className="text-red-500 font-semibold">Employee not found.</p>
         </main>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">
-          Edit Employee
-        </h1>
+      <main className="max-w-3xl mx-auto px-4 py-8">
+        {/* Back Link */}
+        <div className="mb-6">
+          <Link
+            href="/employees"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-olive-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Back to Employees
+          </Link>
+        </div>
+
+        {/* Page Header */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-950 tracking-tight">
+            Edit Employee Profile
+          </h1>
+          <p className="text-sm text-gray-500 mt-1">
+            Modify the details below to update this employee profile.
+          </p>
+        </div>
 
         <EmployeeForm
           initialData={{

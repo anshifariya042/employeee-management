@@ -96,9 +96,9 @@ export default function EmployeesPage() {
 
           <Link
             href="/employees/add"
-            className="bg-blue-600 text-white px-5 py-3 rounded-lg hover:bg-blue-700 text-center"
+            className="bg-olive-600 text-white px-5 py-2.5 rounded-lg hover:bg-olive-700 text-center text-sm font-medium shadow-sm transition-colors flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-olive-500 focus:ring-offset-2"
           >
-            + Add Employee
+            Add Employee
           </Link>
         </div>
 

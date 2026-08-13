@@ -6,26 +6,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <Link
           href="/employees"
-          className="text-xl font-bold text-gray-800"
+          className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2.5"
         >
           Employee Management
         </Link>
 
-        {/* <div className="flex gap-4">
-          <Link
-            href="/employees"
-            className="text-gray-600 hover:text-blue-600"
-          >
-            Employees
-          </Link>
-
-          <Link
-            href="/employees/add"
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-          >
-            Add Employee
-          </Link>
-        </div> */}
       </div>
     </nav>
   );

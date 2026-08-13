@@ -14,7 +14,7 @@ export default function Home() {
 
         <Link
           href="/employees"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+          className="inline-block bg-olive-600 text-white px-6 py-3 rounded-lg hover:bg-olive-700 font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-olive-500 focus:ring-offset-2"
         >
           View Employees
         </Link>
