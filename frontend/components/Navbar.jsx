@@ -8,7 +8,7 @@ export default function Navbar() {
           href="/employees"
           className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2.5"
         >
-          Employee Management
+          StaffSphere
         </Link>
 
       </div>
