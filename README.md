@@ -4,6 +4,29 @@ A complete full-stack Employee Management System built with **Next.js**, **Node.
 
 ---
 
+
+## 🌐 Deployment
+
+### Frontend
+
+The Next.js frontend is deployed on Vercel.
+
+**Live URL:**
+https://staff-spheree.vercel.app
+
+### Backend
+
+The Node.js + Express backend is deployed on Render.
+
+**API URL:**
+https://employeee-management.onrender.com
+
+### Database
+
+MongoDB Atlas is used for storing employee data.
+
+---
+
 ## 🚀 Key Features
 
 ### Frontend (Next.js)
