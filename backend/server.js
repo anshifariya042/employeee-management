@@ -11,7 +11,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: ["https://staff-sphere-black.vercel.app","http://localhost:3000"],
+    origin: ["https://staff-spheree.vercel.app","http://localhost:3000"],
     credentials: true,
   }),
 );
